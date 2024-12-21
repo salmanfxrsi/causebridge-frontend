@@ -17,7 +17,7 @@ const Navbar = () => {
           <NavLink to="/my-profile">My Profile</NavLink>
         </div>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end z-50">
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -33,8 +33,12 @@ const Navbar = () => {
           </div>
           <div
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ml-2 font-bold mx-auto"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ml-2 font-semibold mx-auto"
           >
+            <div className="block lg:hidden">
+            <NavLink to={"/all-posts"}>Volunteer Posts</NavLink> <br />
+            <NavLink to={"/my-profile"}>My Profile</NavLink>
+            </div>
             <NavLink to={"/add-volunteer-post"}>Add Volunteer Post</NavLink>
             <NavLink to={"/my-posts"}>Manage My Post</NavLink>
             <div className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-2">
