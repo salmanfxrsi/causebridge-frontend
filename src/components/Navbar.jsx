@@ -36,9 +36,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ml-2 font-bold mx-auto"
           >
             <NavLink to={"/add-volunteer-post"}>Add Volunteer Post</NavLink>
-            <NavLink to={"/"}>Manage My Post</NavLink>
-            <div className="bg-[#52C303] w-full py-1 rounded-lg mt-3">
-              <button className="mx-auto block text-white">Logout</button>
+            <NavLink to={"/my-posts"}>Manage My Post</NavLink>
+            <div className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-2">
+              <button className="mx-auto w-full block">Logout</button>
             </div>
           </div>
         </div>
