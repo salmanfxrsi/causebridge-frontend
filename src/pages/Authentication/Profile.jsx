@@ -21,7 +21,7 @@ const Profile = () => {
             </h1>
             <p className="text-gray-600 mb-2">Email: {user?.email || "No Email"}</p>
             <button
-              className="bg-[#52C303] text-white py-2 px-6 rounded-lg font-medium hover:bg-green-700 transition"
+              className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
               onClick={() => toast.error("Profile edit functionality coming soon!")}
             >
               Edit Profile

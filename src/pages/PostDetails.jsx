@@ -75,7 +75,7 @@ const PostDetails = () => {
             </div>
             {/* Be a Volunteer Button */}
             <button
-              className="bg-[#52C303] text-white py-3 px-6 rounded-lg font-medium hover:bg-green-700 transition w-full md:w-auto"
+              className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
               onClick={() => alert(`You volunteered for ${post?.postTitle}!`)}
             >
               Be a Volunteer

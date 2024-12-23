@@ -18,6 +18,17 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    // Check for uppercase letter
+    if (!/^(?=.*[A-Z]).+$/.test(password))
+      return toast.error("Use minimum one uppercase letter");
+
+    // Check for lower letter
+    if (!/^(?=.*[a-z]).+$/.test(password))
+      return toast.error("Use minimum one lowercase letter");
+
+    // Check for length
+    if (password.length < 6) return toast.error("Use minimum 6 characters");
+
     createUser(email, password)
       .then((result) => {
         setUser(result.user);

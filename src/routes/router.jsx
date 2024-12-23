@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/my-profile",
-          element: <Profile />,
+          element: <PrivateRoutes><Profile /></PrivateRoutes>,
         },
         {
           path: "/volunteer-posts/:id",
