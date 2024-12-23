@@ -15,7 +15,8 @@ const PostDetails = () => {
 
   useEffect(() => {
     fetchPost();
-  }, [id]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // fetching specific data by using id
   const fetchPost = async () => {

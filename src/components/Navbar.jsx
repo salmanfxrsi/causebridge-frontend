@@ -34,7 +34,7 @@ const Navbar = () => {
         )}
         {!user && (
           <Link
-            to={"/registration"}
+            to={"/register"}
             className="bg-[#52C303] text-sm font-medium text-white capitalize transition-colors px-4 duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center py-1 rounded-md"
           >
             Register
