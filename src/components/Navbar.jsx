@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -22,6 +23,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-end z-50">
+        <ThemeToggleButton />
         {!user && (
           <Link
             to={"/login"}
@@ -39,11 +41,11 @@ const Navbar = () => {
           </Link>
         )}
         {user && (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end mt-6">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom tooltip-success"
+              className="avatar tooltip tooltip-bottom tooltip-success"
               data-tip={user?.displayName}
             >
               <div className="w-10 rounded-full">
