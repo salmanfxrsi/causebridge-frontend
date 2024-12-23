@@ -7,6 +7,7 @@ import Login from "../pages/Authentication/Login";
 import PostDetails from "../pages/PostDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import Register from "../pages/Authentication/Register";
+import Profile from "../pages/Authentication/Profile";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register />,
+        },
+        {
+          path: "/my-profile",
+          element: <Profile />,
         },
         {
           path: "/volunteer-posts/:id",
