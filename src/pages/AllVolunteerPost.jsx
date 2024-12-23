@@ -18,7 +18,7 @@ const AllVolunteerPost = () => {
 
   return (
     <section className="my-16">
-      <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <section className="lg:container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {posts.map(post => <VolunteerCard key={post._id} post={post}></VolunteerCard>)}
       </section>
     </section>

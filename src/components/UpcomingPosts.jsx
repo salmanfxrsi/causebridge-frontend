@@ -20,7 +20,7 @@ const UpcomingPosts = () => {
 
   return (
     <div>
-      <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <section className="w-11/12 lg:container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {posts.map((post) => (
           <VolunteerCard key={post._id} post={post}></VolunteerCard>
         ))}
