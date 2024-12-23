@@ -21,7 +21,7 @@ const PostDetails = () => {
   // fetching specific data by using id
   const fetchPost = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/volunteer-posts/${id}`
+      `${import.meta.env.VITE_API_URL}/volunteer-need-posts/${id}`
     );
     setPost(data);
   };

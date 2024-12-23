@@ -26,7 +26,7 @@ const UpcomingPosts = () => {
         ))}
       </section>
       <Link
-        to="/volunteer-posts"
+        to="/volunteer-need-posts"
         className="bg-[#52C303] text-center w-11/12 py-3 mx-auto text-sm font-medium text-white capitalize lg:container transition-colors duration-300 transform rounded-md hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-12 block to"
       >
         Click Here To See All Volunteer Needed Posts

@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <div className="menu menu-horizontal px-1 font-bold flex gap-8">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/volunteer-posts">Volunteer Posts</NavLink>
+          <NavLink to="/volunteer-need-posts">Volunteer Needed Posts</NavLink>
           <NavLink to="/my-profile">My Profile</NavLink>
         </div>
       </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
             >
               <div className="block lg:hidden">
                 <NavLink to={"/"}>Home</NavLink> <br />
-                <NavLink to={"/volunteer-posts"}>Volunteer Posts</NavLink>{" "}
+                <NavLink to={"/volunteer-posts"}>Volunteer Needed Posts</NavLink>{" "}
                 <br />
                 <NavLink to={"/my-profile"}>My Profile</NavLink>
               </div>

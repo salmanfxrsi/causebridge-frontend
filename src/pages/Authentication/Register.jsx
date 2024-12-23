@@ -130,7 +130,7 @@ const Register = () => {
           >
             <FcGoogle size={24} />
             <span className="text-gray-700 font-medium">
-              Sign in with Google
+              Sign up with Google
             </span>
           </button>
           <label className="mb-8">

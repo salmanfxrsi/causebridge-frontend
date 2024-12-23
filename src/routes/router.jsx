@@ -20,7 +20,7 @@ const router = createBrowserRouter([
           element: <Home />,
         },
         {
-          path: "/volunteer-posts",
+          path: "/volunteer-need-posts",
           element: <AllVolunteerPost />
         },
         {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
           element: <PrivateRoutes><Profile /></PrivateRoutes>,
         },
         {
-          path: "/volunteer-posts/:id",
+          path: "/volunteer-need-posts/:id",
           element: <PrivateRoutes><PostDetails /></PrivateRoutes>
         }
       ]

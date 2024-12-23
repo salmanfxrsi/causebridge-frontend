@@ -12,7 +12,7 @@ const AllVolunteerPost = () => {
 
   // fetching all posts from db
   const fetchPosts = async () => {
-    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/volunteer-posts`)
+    const {data} = await axios.get(`${import.meta.env.VITE_API_URL}/volunteer-need-posts`)
     setPosts(data)
   }
 
