@@ -26,14 +26,14 @@ const PostDetails = () => {
   };
 
   return (
-    <div className="w-full bg-gray-50 py-8">
+    <div className="w-full py-8">
       <div className="container mx-auto px-4">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Thumbnail */}
           <img
             src={post?.thumbnail}
             alt={post?.postTitle}
-            className="w-full h-96 object-cover"
+            className="w-full h-96 object-right-bottom"
           />
           {/* Post Content */}
           <div className="p-6">
