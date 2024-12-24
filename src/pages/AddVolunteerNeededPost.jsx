@@ -12,10 +12,12 @@ import {
 } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddVolunteerNeedPost = () => {
   const { user } = useContext(AuthContext);
-  const [deadline, setDeadline] = useState(new Date()) 
+  const navigate = useNavigate();
+  const [deadline, setDeadline] = useState(new Date());
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,17 +40,20 @@ const AddVolunteerNeedPost = () => {
       deadline,
       organizerName,
       organizerEmail,
-      registeredVolunteer: 0, 
+      registeredVolunteer: 0,
     };
-    console.log(postData);
 
     // post volunteer needed post in db
-    try{
-        await axios.post(`${import.meta.env.VITE_API_URL}/add-volunteer-needed-post`, postData)
-        toast.success(`${postTitle} Added Successfully`)
-    }
-    catch(error){
-        toast.error(error.message)
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/add-volunteer-needed-post`,
+        postData
+      );
+      toast.success(`${postTitle} Added Successfully`);
+      e.target.reset();
+      navigate("/manage-my-posts");
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 

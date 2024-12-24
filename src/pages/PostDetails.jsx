@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 
 const PostDetails = () => {
   const { id } = useParams();
-  console.log(id)
   const [post, setPost] = useState({});
 
   useEffect(() => {
