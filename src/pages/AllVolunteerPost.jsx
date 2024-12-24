@@ -52,7 +52,7 @@ const AllVolunteerPost = () => {
       </section>
       {/* Table Layout Section */}
       {isTableLayout && (
-        <section className="container mx-auto">
+        <section className="container mx-auto py-4">
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
@@ -98,7 +98,7 @@ const AllVolunteerPost = () => {
       )}
       {/* Grid Layout Section */}
       {!isTableLayout && (
-        <section className="lg:container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <section className="lg:container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-4">
           {posts.map((post) => (
             <VolunteerCard key={post._id} post={post}></VolunteerCard>
           ))}

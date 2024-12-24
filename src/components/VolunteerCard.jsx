@@ -12,10 +12,20 @@ const VolunteerCard = ({ post }) => {
         <h2 className="card-title">{postTitle}</h2>
         <p>{description}</p>
         <div className="card-actions justify-start">
-          <div className="badge badge-outline">Deadline: {deadline}</div>
+          <div className="badge badge-outline">
+            Deadline:{" "}
+            {new Date(deadline).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </div>
           <div className="badge badge-outline">{category}</div>
         </div>
-        <Link to={`/volunteer-need-posts/${_id}`} className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-4 text-center py-1 rounded-sm">
+        <Link
+          to={`/volunteer-need-posts/${_id}`}
+          className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-4 text-center py-1 rounded-sm"
+        >
           View Details
         </Link>
       </div>
