@@ -4,6 +4,7 @@ import axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { MdEditDocument } from "react-icons/md";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MyPostsTable = () => {
   const { user } = useContext(AuthContext);
@@ -94,7 +95,7 @@ const MyPostsTable = () => {
                 </span>
               </td>
               <td className="text-xl hover:text-[#52C303] pl-11">
-                <MdEditDocument />
+                <Link to={`/update-my-posts/${post._id}`}><MdEditDocument /></Link>
               </td>
               <td
                 onClick={() => deleteConfirmation(post._id)}

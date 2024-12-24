@@ -4,9 +4,10 @@ import { useState } from "react";
 import axios from "axios";
 
 const AllVolunteerPost = () => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   useEffect(()=>{
+    document.title = "CauseBridge Posts";
     fetchPosts()
   },[])
 

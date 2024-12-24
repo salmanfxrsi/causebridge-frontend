@@ -7,7 +7,7 @@
 
 /* navLink active style */
 .active {
-  color: #52C303;
+  color: slategrey;
 }
 
 @tailwind base;
