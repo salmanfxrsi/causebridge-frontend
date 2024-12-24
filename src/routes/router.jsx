@@ -8,6 +8,7 @@ import PostDetails from "../pages/PostDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import Register from "../pages/Authentication/Register";
 import Profile from "../pages/Authentication/Profile";
+import AddVolunteerNeededPost from "../pages/AddVolunteerNeededPost";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,12 @@ const router = createBrowserRouter([
         {
           path: "/volunteer-need-posts/:id",
           element: <PrivateRoutes><PostDetails /></PrivateRoutes>
-        }
+        },
+        {
+          path: "/add-volunteer-needed-post",
+          element: <PrivateRoutes><AddVolunteerNeededPost /></PrivateRoutes>
+        },
+
       ]
     },
   ]);

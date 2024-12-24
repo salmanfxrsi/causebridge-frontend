@@ -58,11 +58,11 @@ const Navbar = () => {
             >
               <div className="block lg:hidden">
                 <NavLink to={"/"}>Home</NavLink> <br />
-                <NavLink to={"/volunteer-posts"}>Volunteer Needed Posts</NavLink>{" "}
+                <NavLink to={"/volunteer-need-posts"}>Volunteer Needed Posts</NavLink>{" "}
                 <br />
                 <NavLink to={"/my-profile"}>My Profile</NavLink>
               </div>
-              <NavLink to={"/add-volunteer-post"}>Add Volunteer Post</NavLink>
+              <NavLink to={"/add-volunteer-needed-post"}>Add Volunteer Post</NavLink>
               <NavLink to={"/my-posts"}>Manage My Post</NavLink>
               <div className="bg-red-600 w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-2">
                 <button onClick={logout} className="mx-auto w-full block">
