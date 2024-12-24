@@ -34,6 +34,30 @@ const MyPostsTable = () => {
     }
   };
 
+  //   before deleting, ask for a delete confirmation
+  const deleteConfirmation = (id) => {
+    toast((t) => (
+      <div className="flex gap-4 items-center justify-center">
+        <p className="font-semibold">Are You Sure?</p>
+        <button
+          className="bg-red-500 rounded-md w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 text-center py-1 px-3"
+          onClick={() => {
+            toast.dismiss(t.id);
+            handleDelete(id);
+          }}
+        >
+          Delete
+        </button>
+        <button
+          className="bg-[#52C303] rounded-md w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 text-center py-1 px-3"
+          onClick={() => toast.dismiss(t.id)}
+        >
+          Dismiss
+        </button>
+      </div>
+    ));
+  };
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -73,7 +97,7 @@ const MyPostsTable = () => {
                 <MdEditDocument />
               </td>
               <td
-                onClick={() => handleDelete(post._id)}
+                onClick={() => deleteConfirmation(post._id)}
                 className="text-xl hover:text-red-600 pl-10"
               >
                 <AiFillDelete />

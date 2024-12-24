@@ -6,7 +6,7 @@ const VolunteerCard = ({ post }) => {
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
-        <img src={thumbnail} alt="Shoes" className="h-[200px] w-full" />
+        <img src={thumbnail} alt={postTitle} className="h-[200px] w-full" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{postTitle}</h2>
