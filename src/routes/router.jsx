@@ -11,6 +11,7 @@ import Profile from "../pages/Authentication/Profile";
 import AddVolunteerNeededPost from "../pages/AddVolunteerNeededPost";
 import ManageMyPosts from "../pages/ManageMyPosts";
 import UpdateMyPost from "../pages/UpdateMyPost";
+import BeVolunteerForm from "../pages/BeVolunteerForm";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,15 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+      {
+        path: "/volunteer-request/:id",
+        element: (
+          <PrivateRoutes>
+            <BeVolunteerForm />
+          </PrivateRoutes>
+        ),
+      },
+      
     ],
   },
 ]);

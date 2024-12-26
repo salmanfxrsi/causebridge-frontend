@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -10,13 +10,16 @@ import {
   FaUser,
 } from "react-icons/fa";
 import axios from "axios";
-import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 
-const UpdateMyPost = () => {
+const BeVolunteerForm = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [post, setPost] = useState({});
   const {
+    _id,
     thumbnail,
     postTitle,
     description,
@@ -26,10 +29,8 @@ const UpdateMyPost = () => {
     deadline,
     organizerName,
     organizerEmail,
-    registeredVolunteer,
   } = post;
 
-  const [startDate, setStartDate] = useState(deadline);
   const { id } = useParams();
 
   useEffect(() => {
@@ -56,26 +57,33 @@ const UpdateMyPost = () => {
     const volunteersNeeded = Number(form.volunteersNeeded.value);
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;
-    const postData = {
+    const volunteerName = form.volunteerName.value;
+    const volunteerEmail = form.volunteerEmail.value;
+    const volunteerSuggestion = form.volunteerSuggestion.value;
+    const requestData = {
+      postId: _id,
       thumbnail,
       postTitle,
       description,
       category,
       location,
       volunteersNeeded,
-      deadline: startDate,
+      deadline,
       organizerName,
       organizerEmail,
-      registeredVolunteer,
+      volunteerName,
+      volunteerEmail,
+      volunteerSuggestion,
+      status: "Pending",
     };
 
     // post volunteer needed post in db
     try {
-      await axios.patch(
-        `${import.meta.env.VITE_API_URL}/update-my-posts/${id}`,
-        postData
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/volunteer-request`,
+        requestData
       );
-      toast.success(`${postTitle} Updated Successfully`);
+      toast.success(`Request Successfully`);
       e.target.reset();
       navigate("/manage-my-posts");
     } catch (error) {
@@ -85,7 +93,7 @@ const UpdateMyPost = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-12 mb-24">
-      <h2 className="text-2xl font-bold mb-4">Update {postTitle} Post</h2>
+      <h2 className="text-xl font-bold mb-12">{postTitle} Information</h2>
       <form onSubmit={handleSubmit}>
         {/* Thumbnail */}
         <div className="mb-4">
@@ -95,10 +103,9 @@ const UpdateMyPost = () => {
           <input
             type="text"
             name="thumbnail"
-            defaultValue={thumbnail}
-            placeholder="Enter thumbnail URL"
-            className="w-full px-3 py-2 border rounded-lg"
-            required
+            value={thumbnail}
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
           />
         </div>
 
@@ -110,10 +117,9 @@ const UpdateMyPost = () => {
           <input
             type="text"
             name="postTitle"
-            defaultValue={postTitle}
-            placeholder="Enter post title"
-            className="w-full px-3 py-2 border rounded-lg"
-            required
+            value={postTitle}
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
           />
         </div>
 
@@ -124,11 +130,10 @@ const UpdateMyPost = () => {
           </label>
           <textarea
             name="description"
-            placeholder="Enter description"
-            defaultValue={description}
-            className="w-full px-3 py-2 border rounded-lg"
+            value={description}
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
             rows="4"
-            required
+            readOnly
           ></textarea>
         </div>
 
@@ -140,9 +145,9 @@ const UpdateMyPost = () => {
             </label>
             <select
               name="category"
-              defaultValue={category}
-              className="w-full px-3 py-2 border rounded-lg"
-              required
+              value={category}
+              className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+              readOnly
             >
               <option value="">Select a category</option>
               <option value="healthcare">Healthcare</option>
@@ -161,10 +166,9 @@ const UpdateMyPost = () => {
           <input
             type="text"
             name="location"
-            defaultValue={location}
-            placeholder="Enter location"
-            className="w-full px-3 py-2 border rounded-lg"
-            required
+            value={location}
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
           />
         </div>
 
@@ -177,10 +181,9 @@ const UpdateMyPost = () => {
           <input
             type="number"
             name="volunteersNeeded"
-            defaultValue={volunteersNeeded}
-            placeholder="Enter number of volunteers"
-            className="w-full px-3 py-2 border rounded-lg"
-            required
+            value={volunteersNeeded}
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
           />
         </div>
 
@@ -192,9 +195,8 @@ const UpdateMyPost = () => {
           <DatePicker
             name="deadline"
             selected={deadline}
-            onChange={setStartDate}
-            className="w-full px-3 py-2 border rounded-lg"
-            required
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
           />
         </div>
 
@@ -223,13 +225,53 @@ const UpdateMyPost = () => {
           />
         </div>
 
+        <h2 className="text-xl font-bold my-12">Volunteer Information</h2>
+
+        {/* Volunteer Name and Email */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            <FaUser className="inline mr-2 text-[#52C303]" /> Volunteer Name
+          </label>
+          <input
+            value={user?.displayName}
+            type="text"
+            name="volunteerName"
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            <FaUser className="inline mr-2 text-[#52C303]" /> Volunteer Email
+          </label>
+          <input
+            name="volunteerEmail"
+            value={user?.email}
+            type="email"
+            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            readOnly
+          />
+        </div>
+
+        {/* Suggestion */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            <FaEdit className="inline mr-2 text-[#52C303]" /> Suggestion
+          </label>
+          <textarea
+            name="volunteerSuggestion"
+            className="w-full px-3 py-2 border rounded-lg"
+            rows="4"
+          ></textarea>
+        </div>
+
         {/* Add Post Button */}
         <div>
           <button
             type="submit"
             className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
           >
-            Update {postTitle}
+            Request
           </button>
         </div>
       </form>
@@ -237,4 +279,4 @@ const UpdateMyPost = () => {
   );
 };
 
-export default UpdateMyPost;
+export default BeVolunteerForm;

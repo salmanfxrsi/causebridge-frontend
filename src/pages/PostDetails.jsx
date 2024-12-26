@@ -6,7 +6,7 @@ import {
   FaUserAlt,
   FaEnvelope,
 } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -73,12 +73,12 @@ const PostDetails = () => {
               <span className="ml-2">{post?.organizerName}</span>
             </div>
             {/* Be a Volunteer Button */}
-            <button
+            <Link
               className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
-              onClick={() => alert(`You volunteered for ${post?.postTitle}!`)}
+              to={`/volunteer-request/${post._id}`}
             >
               Be a Volunteer
-            </button>
+            </Link>
           </div>
         </div>
       </div>
