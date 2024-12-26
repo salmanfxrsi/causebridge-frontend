@@ -1,10 +1,27 @@
+import { useEffect, useState } from "react";
+
 const ThemeToggleButton = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  console.log(isDarkMode)
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "dark" : "light"
+    );
+  }, [isDarkMode]);
+
+  const handleDarkModeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <label className="grid cursor-pointer place-items-center mt-4 mr-6">
       <input
         type="checkbox"
         value="synthwave"
         className="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
+        onChange={handleDarkModeToggle}
       />
       <svg
         className="stroke-base-100 fill-base-100 col-start-1 row-start-1"
