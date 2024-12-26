@@ -5,7 +5,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { MdCancelPresentation } from "react-icons/md";
 import NoDataMsg from "./NoDataMsg";
-import Loading from "./Loading";
 
 const MyReqTable = () => {
   const { user } = useContext(AuthContext);

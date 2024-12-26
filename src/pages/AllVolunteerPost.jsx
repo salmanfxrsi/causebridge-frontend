@@ -11,6 +11,8 @@ const AllVolunteerPost = () => {
   const [posts, setPosts] = useState([]);
   const [isTableLayout, setIsTableLayout] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  console.log(search);
 
   const toggleLayout = () => {
     setIsTableLayout(!isTableLayout);
@@ -18,21 +20,18 @@ const AllVolunteerPost = () => {
 
   useEffect(() => {
     document.title = "CauseBridge Posts";
+    // fetching all posts from db
+    const fetchPosts = async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/volunteer-need-posts?search=${search}`
+      );
+      setPosts(data);
+      setLoading(false);
+    };
     fetchPosts();
-  }, []);
-
-  // fetching all posts from db
-  const fetchPosts = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/volunteer-need-posts`
-    );
-    setPosts(data);
-    setLoading(false);
-  };
+  }, [search]);
 
   if (loading) return <Loading></Loading>;
-
-  if (posts.length === 0) return <NoDataMsg category={"Post"}></NoDataMsg>;
 
   return (
     <section className="my-16">
@@ -46,6 +45,8 @@ const AllVolunteerPost = () => {
               type="text"
               placeholder="Search"
               className="w-full py-2 outline-none text-lg"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
 
@@ -58,52 +59,57 @@ const AllVolunteerPost = () => {
           </button>
         </div>
       </section>
+
+      {posts.length === 0 && <NoDataMsg category={"Post"}></NoDataMsg>}
+
       {/* Table Layout Section */}
-      {isTableLayout && (
-        <section className="container mx-auto py-4">
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Location</th>
-                  <th>Category</th>
-                  <th>Show Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {posts.map((post) => (
-                  <tr key={post._id}>
-                    <td>
-                      <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle h-12 w-12">
-                            <img src={post?.thumbnail} />
+      {isTableLayout &&
+        posts.length >
+          0(
+            <section className="container mx-auto py-4">
+              <div className="overflow-x-auto">
+                <table className="table">
+                  {/* head */}
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Location</th>
+                      <th>Category</th>
+                      <th>Show Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {posts.map((post) => (
+                      <tr key={post._id}>
+                        <td>
+                          <div className="flex items-center gap-3">
+                            <div className="avatar">
+                              <div className="mask mask-squircle h-12 w-12">
+                                <img src={post?.thumbnail} />
+                              </div>
+                            </div>
+                            <div>
+                              <div className="font-bold">{post?.postTitle}</div>
+                            </div>
                           </div>
-                        </div>
-                        <div>
-                          <div className="font-bold">{post?.postTitle}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>{post?.location}</td>
-                    <td>{post?.category}</td>
-                    <th>
-                      <Link
-                        to={`/volunteer-need-posts/${post._id}`}
-                        className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-4 text-center py-1 rounded-lg px-2"
-                      >
-                        View Details
-                      </Link>
-                    </th>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
+                        </td>
+                        <td>{post?.location}</td>
+                        <td>{post?.category}</td>
+                        <th>
+                          <Link
+                            to={`/volunteer-need-posts/${post._id}`}
+                            className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-4 text-center py-1 rounded-lg px-2"
+                          >
+                            View Details
+                          </Link>
+                        </th>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
       {/* Grid Layout Section */}
       {!isTableLayout && (
         <section className="lg:container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-4">
