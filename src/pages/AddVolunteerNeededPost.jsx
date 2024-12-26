@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../provider/AuthProvider";
@@ -18,6 +18,9 @@ const AddVolunteerNeedPost = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [deadline, setDeadline] = useState(new Date());
+  useEffect(() => {
+    document.title = "Create Post";
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

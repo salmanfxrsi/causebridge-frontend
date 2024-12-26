@@ -34,6 +34,7 @@ const UpdateMyPost = () => {
 
   useEffect(() => {
     fetchPost();
+    document.title = 'CauseBridge Update'
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

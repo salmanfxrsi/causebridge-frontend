@@ -4,10 +4,13 @@ import { useState } from "react";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
+import NoDataMsg from "../components/NoDataMsg";
 
 const AllVolunteerPost = () => {
   const [posts, setPosts] = useState([]);
   const [isTableLayout, setIsTableLayout] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const toggleLayout = () => {
     setIsTableLayout(!isTableLayout);
@@ -24,7 +27,12 @@ const AllVolunteerPost = () => {
       `${import.meta.env.VITE_API_URL}/volunteer-need-posts`
     );
     setPosts(data);
+    setLoading(false);
   };
+
+  if (loading) return <Loading></Loading>;
+
+  if (posts.length === 0) return <NoDataMsg category={"Post"}></NoDataMsg>;
 
   return (
     <section className="my-16">

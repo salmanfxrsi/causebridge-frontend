@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Error = () => {
+    useEffect(() => {
+        document.title = 'CauseBridge 404'
+    },[])
+
     return (
         <div className="mt-80">
             <h1 className="text-5xl font-bold text-center">Page Not Found <span className="text-red-600">404</span></h1>

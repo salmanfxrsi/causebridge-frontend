@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,6 +8,10 @@ const Register = () => {
   const { setUser, signInWithGoogle, createUser, updateUserProfile } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+      document.title = "CauseBridge Registration";
+    }, []);
 
   //   Register with Email And Password
   const handleRegister = (e) => {

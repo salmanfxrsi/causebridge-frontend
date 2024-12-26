@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,10 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { setUser, signInWithGoogle, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "CauseBridge Login";
+  }, []);
 
   //   Login with Email And Password
   const handleLogin = (e) => {

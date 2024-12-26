@@ -74,7 +74,7 @@ const BeVolunteerForm = () => {
       volunteerName,
       volunteerEmail,
       volunteerSuggestion,
-      status: "Pending",
+      status: "requested",
     };
 
     // post volunteer needed post in db
