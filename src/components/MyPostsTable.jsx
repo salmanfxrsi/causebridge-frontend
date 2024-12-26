@@ -19,7 +19,8 @@ const MyPostsTable = () => {
   // fetching user post by user login email
   const fetchPosts = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/get-specific-user-post/${user?.email}`
+      `${import.meta.env.VITE_API_URL}/get-specific-user-post/${user?.email}`,
+      { withCredentials: true }
     );
     setPosts(data);
   };
@@ -61,8 +62,7 @@ const MyPostsTable = () => {
     ));
   };
 
-
-  if(posts.length === 0) return <NoDataMsg category={'Post'}></NoDataMsg>
+  if (posts.length === 0) return <NoDataMsg category={"Post"}></NoDataMsg>;
 
   return (
     <div className="overflow-x-auto">
@@ -100,7 +100,9 @@ const MyPostsTable = () => {
                 </span>
               </td>
               <td className="text-xl hover:text-[#52C303] pl-11">
-                <Link to={`/update-my-posts/${post._id}`}><MdEditDocument /></Link>
+                <Link to={`/update-my-posts/${post._id}`}>
+                  <MdEditDocument />
+                </Link>
               </td>
               <td
                 onClick={() => deleteConfirmation(post._id)}

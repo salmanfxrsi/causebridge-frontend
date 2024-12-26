@@ -12,7 +12,6 @@ const AllVolunteerPost = () => {
   const [isTableLayout, setIsTableLayout] = useState(false);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  console.log(search);
 
   const toggleLayout = () => {
     setIsTableLayout(!isTableLayout);

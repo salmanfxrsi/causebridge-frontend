@@ -17,7 +17,8 @@ const MyReqTable = () => {
   // fetching user post by user login email
   const fetchPosts = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/volunteer-request-posts/${user?.email}`
+      `${import.meta.env.VITE_API_URL}/volunteer-request-posts/${user?.email}`,
+      {withCredentials: true}
     );
     setRequests(data);
   };
