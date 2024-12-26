@@ -54,7 +54,6 @@ const BeVolunteerForm = () => {
     const description = form.description.value;
     const category = form.category.value;
     const location = form.location.value;
-    const volunteersNeeded = Number(form.volunteersNeeded.value);
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;
     const volunteerName = form.volunteerName.value;
@@ -76,6 +75,8 @@ const BeVolunteerForm = () => {
       volunteerSuggestion,
       status: "requested",
     };
+
+    if (volunteersNeeded === 0) return toast.error("No Volunteer Needed");
 
     // post volunteer needed post in db
     try {
@@ -269,7 +270,9 @@ const BeVolunteerForm = () => {
         <div>
           <button
             type="submit"
-            className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
+            className={`py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center ${
+              volunteersNeeded === 0 && "disabled bg-gray-500"
+            }`}
           >
             Request
           </button>
