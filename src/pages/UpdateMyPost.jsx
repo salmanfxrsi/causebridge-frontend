@@ -85,8 +85,8 @@ const UpdateMyPost = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-12 mb-24">
-      <h2 className="text-2xl font-bold mb-4">Update {postTitle} Post</h2>
+    <div className="max-w-4xl mx-auto p-6 shadow-md rounded-lg mt-12 mb-24">
+      <h2 className="text-2xl font-bold mb-8 uppercase">Update {postTitle} Post</h2>
       <form onSubmit={handleSubmit}>
         {/* Thumbnail */}
         <div className="mb-4">
@@ -208,7 +208,7 @@ const UpdateMyPost = () => {
             name="organizerName"
             value={organizerName}
             readOnly
-            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            className="w-full px-3 py-2 border rounded-lg cursor-not-allowed"
           />
         </div>
         <div className="mb-4">
@@ -220,7 +220,7 @@ const UpdateMyPost = () => {
             type="email"
             value={organizerEmail}
             readOnly
-            className="w-full px-3 py-2 border rounded-lg bg-gray-100 cursor-not-allowed"
+            className="w-full px-3 py-2 border rounded-lg cursor-not-allowed"
           />
         </div>
 
