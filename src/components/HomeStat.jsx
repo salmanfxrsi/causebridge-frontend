@@ -5,7 +5,7 @@ const HomeStat = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="stats shadow">
+    <div className="stats shadow w-full">
       <div className="stat">
         <div className="stat-figure text-[#52C303]">
           <svg

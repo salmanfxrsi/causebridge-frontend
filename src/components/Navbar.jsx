@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 sticky top-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start flex items-center gap-2">
           <img className="w-10" src={logo} alt="" />
@@ -17,9 +17,14 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <div className="menu menu-horizontal px-1 font-bold flex gap-8">
+          <div className="menu menu-horizontal px-1 font-bold flex gap-6">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/volunteer-need-posts">Volunteer Needed Posts</NavLink>
+            {user && (
+              <>
+                <NavLink to="/add-volunteer-needed-post">Add Volunteer Post</NavLink>
+              </>
+            )}
           </div>
         </div>
         <div className="navbar-end z-50">
@@ -61,12 +66,12 @@ const Navbar = () => {
                   <NavLink to={"/volunteer-need-posts"}>
                     Volunteer Needed Posts
                   </NavLink>{" "}
+                  <NavLink to={"/add-volunteer-needed-post"}>
+                    Add Volunteer Need Post
+                  </NavLink>{" "}
                   <br />
                   <NavLink to={"/my-profile"}>My Profile</NavLink>
                 </div>
-                <NavLink to={"/add-volunteer-needed-post"}>
-                  Add Volunteer Post
-                </NavLink>
                 <NavLink to={"/manage-my-posts"}>Manage My Post</NavLink>
                 <NavLink to="/my-profile">My Profile</NavLink>
                 <div className="bg-red-600 w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-2">
