@@ -63,7 +63,7 @@ const MyReqTable = () => {
     ));
   };
 
-  if(loading) return <Loading />
+  if (loading) return <Loading />;
 
   if (requests.length === 0)
     return <NoDataMsg category={"Request"}></NoDataMsg>;
@@ -71,7 +71,7 @@ const MyReqTable = () => {
   return (
     <div className="overflow-x-auto">
       <h1 className="text-3xl font-semibold mb-6 pl-4 font-serif">
-        My Volunteer Request Post
+        My Volunteer Requests
       </h1>
       <table className="table">
         {/* head */}

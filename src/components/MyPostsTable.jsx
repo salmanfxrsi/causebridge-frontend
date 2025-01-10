@@ -72,7 +72,7 @@ const MyPostsTable = () => {
   return (
     <div className="overflow-x-auto">
       <h1 className="text-3xl font-semibold mb-6 pl-4 font-serif">
-        My Volunteer Request Post
+        My Volunteer Posts
       </h1>
       <table className="table">
         {/* head */}

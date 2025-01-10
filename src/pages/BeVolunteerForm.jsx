@@ -86,7 +86,7 @@ const BeVolunteerForm = () => {
       );
       toast.success(`Request Successfully`);
       e.target.reset();
-      navigate("/manage-my-posts");
+      navigate("/manage-my-request");
     } catch (error) {
       toast.error(error.message);
     }
