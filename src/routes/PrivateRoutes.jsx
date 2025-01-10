@@ -7,7 +7,7 @@ import Loading from "../components/Loading";
 const PrivateRoutes = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
 
-    if(loading) return <Loading />
+    if(loading) return <div className="py-24"><Loading /></div>
 
     if(user) return children;
     

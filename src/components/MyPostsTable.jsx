@@ -7,10 +7,12 @@ import { MdEditDocument } from "react-icons/md";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import NoDataMsg from "./NoDataMsg";
+import Loading from "./Loading";
 
 const MyPostsTable = () => {
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -23,6 +25,7 @@ const MyPostsTable = () => {
       { withCredentials: true }
     );
     setPosts(data);
+    setLoading(false);
   };
 
   //   delete specific single post by id
@@ -62,10 +65,15 @@ const MyPostsTable = () => {
     ));
   };
 
+  if (loading) return <Loading />;
+
   if (posts.length === 0) return <NoDataMsg category={"Post"}></NoDataMsg>;
 
   return (
     <div className="overflow-x-auto">
+      <h1 className="text-3xl font-semibold mb-6 pl-4 font-serif">
+        My Volunteer Request Post
+      </h1>
       <table className="table">
         {/* head */}
         <thead>

@@ -5,10 +5,12 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { MdCancelPresentation } from "react-icons/md";
 import NoDataMsg from "./NoDataMsg";
+import Loading from "./Loading";
 
 const MyReqTable = () => {
   const { user } = useContext(AuthContext);
   const [requests, setRequests] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -18,9 +20,10 @@ const MyReqTable = () => {
   const fetchPosts = async () => {
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/volunteer-request-posts/${user?.email}`,
-      {withCredentials: true}
+      { withCredentials: true }
     );
     setRequests(data);
+    setLoading(false);
   };
 
   //   delete specific single post by id
@@ -60,12 +63,16 @@ const MyReqTable = () => {
     ));
   };
 
+  if(loading) return <Loading />
 
-  if(requests.length === 0) return <NoDataMsg category={'Request'}></NoDataMsg>
-
+  if (requests.length === 0)
+    return <NoDataMsg category={"Request"}></NoDataMsg>;
 
   return (
     <div className="overflow-x-auto">
+      <h1 className="text-3xl font-semibold mb-6 pl-4 font-serif">
+        My Volunteer Request Post
+      </h1>
       <table className="table">
         {/* head */}
         <thead>
@@ -88,7 +95,9 @@ const MyReqTable = () => {
                   </div>
                   <div>
                     <div className="font-bold">{request?.postTitle}</div>
-                    <div className="text-sm opacity-50">{request?.location}</div>
+                    <div className="text-sm opacity-50">
+                      {request?.location}
+                    </div>
                   </div>
                 </div>
               </td>

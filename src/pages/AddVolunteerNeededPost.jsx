@@ -19,7 +19,7 @@ const AddVolunteerNeedPost = () => {
   const navigate = useNavigate();
   const [deadline, setDeadline] = useState(new Date());
   useEffect(() => {
-    document.title = "Create Post";
+    document.title = "Create Post | CauseBridge";
   }, []);
 
   const handleSubmit = async (e) => {

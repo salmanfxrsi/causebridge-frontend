@@ -22,7 +22,9 @@ const Navbar = () => {
             <NavLink to="/volunteer-need-posts">Volunteer Needed Posts</NavLink>
             {user && (
               <>
-                <NavLink to="/add-volunteer-needed-post">Add Volunteer Post</NavLink>
+                <NavLink to="/add-volunteer-needed-post">
+                  Add Volunteer Post
+                </NavLink>
               </>
             )}
           </div>
@@ -72,7 +74,8 @@ const Navbar = () => {
                   <br />
                   <NavLink to={"/my-profile"}>My Profile</NavLink>
                 </div>
-                <NavLink to={"/manage-my-posts"}>Manage My Post</NavLink>
+                <NavLink to={"/manage-my-posts"}>My Post</NavLink>
+                <NavLink to={"/manage-my-request"}>My Request</NavLink>
                 <NavLink to="/my-profile">My Profile</NavLink>
                 <div className="bg-red-600 w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-2">
                   <button onClick={logout} className="mx-auto w-full block">

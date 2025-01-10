@@ -18,7 +18,7 @@ const AllVolunteerPost = () => {
   };
 
   useEffect(() => {
-    document.title = "CauseBridge Posts";
+    document.title = "Posts | CauseBridge";
     // fetching all posts from db
     const fetchPosts = async () => {
       const { data } = await axios.get(
