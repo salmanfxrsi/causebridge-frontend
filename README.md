@@ -6,9 +6,9 @@ CauseBridge is a volunteer management platform that connects individuals to mean
 
 The purpose of CauseBridge is to streamline volunteer management and encourage community engagement by providing an intuitive platform for organizing and participating in volunteer initiatives.
 
-## Backend Repository
+## Frontend Repository
 
-[Visit CauseBridge Backend Repository](https://github.com/salmanfxrsi/causebridge-backend)
+[Visit CauseBridge Frontend Repository](https://github.com/salmanfxrsi/causebridge-frontend)
 
 ## Live Website
 
