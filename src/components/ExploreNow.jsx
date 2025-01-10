@@ -11,9 +11,9 @@ const ExploreNow = () => {
         <div>
           <h1 className="text-4xl font-bold uppercase">Explore Volunteer Needed Posts</h1>
           <p className="py-6">
-          The purpose of CauseBridge is to streamline volunteer management and encourage community engagement by providing an intuitive platform for organizing and participating in volunteer initiatives. Go and Explore Post and do good works.
+          We are providing add volunteer post and request to be a volunteer. It is a great opportunity to help people through CauseBridge. Explore now and make this world amazing with CauseBridge.  
           </p>
-          <Link to='/volunteer-need-posts' className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-4 text-center rounded-sm px-3 py-3">Explore Posts</Link>
+          <Link to='/volunteer-need-posts' className="bg-[#52C303] w-full text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 mt-8 text-center rounded-sm px-6 py-3">Explore Posts</Link>
         </div>
       </div>
     </div>
