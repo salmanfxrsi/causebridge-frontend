@@ -38,8 +38,8 @@ const AllVolunteerPost = () => {
       <section className="w-11/12 lg:container mx-auto mb-16">
         <div className="flex justify-between items-center mb-6 gap-6">
           {/* Search Input */}
-          <div className="flex items-center border-2 border-[#52C303] rounded-lg p-1 w-[400px]">
-            <FaSearch className="text-[#52C303] mx-3" />
+          <div className="flex items-center border-2 border-black rounded-lg p-1 w-[400px]">
+            <FaSearch className="text-black mx-3" />
             <input
               type="text"
               placeholder="Search"
@@ -52,7 +52,7 @@ const AllVolunteerPost = () => {
           {/* Table Layout Toggle Button */}
           <button
             onClick={toggleLayout}
-            className="bg-[#52C303] w-[200px] px-5 py-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md hover:bg-gray-500"
+            className="bg-black w-[200px] px-5 py-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md hover:bg-gray-500"
           >
             {isTableLayout ? "Card Layout" : "Table Layout"}
           </button>

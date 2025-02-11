@@ -1,5 +1,5 @@
 /* work sans font */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 .work-sans {
   font-family: "Work Sans", serif;
@@ -7,7 +7,8 @@
 
 /* navLink active style */
 .active {
-  color: slategrey;
+  font-weight: bolder;
+  color: white;
 }
 
 @tailwind base;

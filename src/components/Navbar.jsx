@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <div className="bg-base-200 sticky top-0 z-50">
+    <div className="bg-black sticky top-0 z-50 text-white">
       <div className="navbar container mx-auto">
         <div className="navbar-start flex items-center gap-2">
           <img className="w-10" src={logo} alt="" />
@@ -17,7 +17,7 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <div className="menu menu-horizontal px-1 font-bold flex gap-6">
+          <div className="menu menu-horizontal px-1 font-bold flex gap-6 text-gray-300">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/volunteer-need-posts">Volunteer Needed Posts</NavLink>
             {user && (
@@ -61,7 +61,7 @@ const Navbar = () => {
               </div>
               <div
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow ml-2 font-semibold mx-auto"
+                className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow ml-2 font-semibold mx-auto"
               >
                 <div className="block lg:hidden">
                   <NavLink to={"/"}>Home</NavLink> <br />
