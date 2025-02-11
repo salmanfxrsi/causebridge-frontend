@@ -8,7 +8,7 @@ const VolunteerCard = ({ post }) => {
     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
       <Link
         to={`/volunteer-need-posts/${_id}`}
-        className="card bg-base-100 shadow-xl"
+        className="card bg-base-100 shadow-xl h-[420px]"
       >
         <figure>
           <img src={thumbnail} alt={postTitle} className="h-[200px] w-full" />
