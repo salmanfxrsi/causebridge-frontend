@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import VolunteerCard from "./VolunteerCard";
 import axios from "axios";
+import { motion } from "motion/react";
 
 const UpcomingPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -19,11 +20,15 @@ const UpcomingPosts = () => {
 
   return (
     <div>
-      <section className="w-11/12 lg:container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <motion.section
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="w-11/12 lg:container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16"
+      >
         {posts.map((post) => (
           <VolunteerCard key={post._id} post={post}></VolunteerCard>
         ))}
-      </section>
+      </motion.section>
     </div>
   );
 };
