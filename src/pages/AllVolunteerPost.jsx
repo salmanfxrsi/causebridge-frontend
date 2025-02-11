@@ -109,7 +109,7 @@ const AllVolunteerPost = () => {
       )}
       {/* Grid Layout Section */}
       {!isTableLayout && posts.length > 0 && (
-        <section className="lg:container w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-4">
+        <section className="lg:container w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 py-4">
           {posts.map((post) => (
             <VolunteerCard key={post._id} post={post}></VolunteerCard>
           ))}
