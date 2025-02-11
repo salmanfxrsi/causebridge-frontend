@@ -35,10 +35,10 @@ const AllVolunteerPost = () => {
   return (
     <section className="my-16">
       {/* Search And Layout Toggle Button Section */}
-      <section className="w-11/12 lg:container mx-auto">
+      <section className="w-11/12 lg:container mx-auto mb-16">
         <div className="flex justify-between items-center mb-6 gap-6">
           {/* Search Input */}
-          <div className="flex items-center border-2 border-[#52C303] rounded-lg p-1">
+          <div className="flex items-center border-2 border-[#52C303] rounded-lg p-1 w-[400px]">
             <FaSearch className="text-[#52C303] mx-3" />
             <input
               type="text"
