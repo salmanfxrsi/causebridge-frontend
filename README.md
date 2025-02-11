@@ -1,4 +1,4 @@
-# CauseBridge - Client Side
+# CauseBridge - FrontEnd
 
 CauseBridge is a volunteer management platform that connects individuals to meaningful volunteer opportunities. Users can create, update, and delete volunteer need posts, as well as join others' posts as volunteers. The platform is designed to be user-friendly, secure, and responsive.
 
