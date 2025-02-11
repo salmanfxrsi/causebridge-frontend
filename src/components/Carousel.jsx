@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import Slide from "./Slide";
 
 import Slide1 from "../assets/Slide1.jpg";
@@ -11,7 +11,7 @@ import Slide3 from "../assets/Slide3.jpg";
 
 export default function Carousel() {
   return (
-    <div className="container px-6 py-10 mx-auto">
+    <div className="mx-auto w-full">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -23,8 +23,7 @@ export default function Carousel() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
