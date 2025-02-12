@@ -17,7 +17,7 @@ const Slide = ({ image, text }) => {
           <br />
           <Link
             to="/add-volunteer-needed-post"
-            className="bg-orange-500 w-full px-5 py-4 text-sm font-black text-white transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 uppercase"
+            className="bg-[#52C303] w-full px-5 py-4 text-sm font-black text-white transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 uppercase"
           >
             Add Volunteer Post With Cause Bridge
           </Link>

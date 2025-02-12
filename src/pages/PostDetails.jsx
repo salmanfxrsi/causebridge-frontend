@@ -14,8 +14,8 @@ const PostDetails = () => {
 
   useEffect(() => {
     fetchPost();
-    document.title = `CauseBridge Details`
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    document.title = `CauseBridge Details`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // fetching specific data by using id
@@ -34,10 +34,10 @@ const PostDetails = () => {
           <img
             src={post?.thumbnail}
             alt={post?.postTitle}
-            className="w-full h-[600px] object-cover-top"
+            className="w-full h-[600px] object-cover object-top"
           />
           {/* Post Content */}
-          <div className="p-6">
+          <div className="p-12">
             <h1 className="text-4xl font-bold mb-4 light:text-gray-800">
               {post?.postTitle}
             </h1>
@@ -69,13 +69,13 @@ const PostDetails = () => {
               </div>
             </div>
             {/* Organizer Name */}
-            <div className="light:text-gray-700 mb-6">
+            <div className="light:text-gray-700 mb-12">
               <span className="font-medium text-lg">Organized by:</span>{" "}
               <span className="ml-2">{post?.organizerName}</span>
             </div>
             {/* Be a Volunteer Button */}
             <Link
-              className="py-3 px-6 rounded-lg w-full md:w-auto bg-[#52C303] text-sm font-medium text-white capitalize transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 mt-4 text-center"
+              className="py-3 px-6 rounded-lg w-full md:w-auto bg-black text-sm font-black text-white uppercase transition-colors duration-300 transform lg:w-auto hover:bg-gray-500 text-center"
               to={`/volunteer-request/${post._id}`}
             >
               Be a Volunteer
