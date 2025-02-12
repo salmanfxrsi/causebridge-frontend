@@ -11,13 +11,13 @@ const Slide = ({ image, text }) => {
     >
       <div className="flex items-center justify-center w-full h-full bg-gray-800/70">
         <div className="text-center -mt-12">
-          <h1 className="text-3xl font-semibold text-white lg:text-4xl uppercase mb-8">
+          <h1 className="text-3xl font-black text-white lg:text-4xl uppercase mb-8">
             {text}
           </h1>
           <br />
           <Link
             to="/add-volunteer-needed-post"
-            className="bg-black w-full px-5 py-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500"
+            className="bg-orange-500 w-full px-5 py-4 text-sm font-black text-white transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-gray-500 focus:outline-none focus:bg-gray-500 uppercase"
           >
             Add Volunteer Post With Cause Bridge
           </Link>
